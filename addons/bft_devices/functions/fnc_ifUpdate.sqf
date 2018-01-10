@@ -581,7 +581,7 @@ if (!isNull _loadingCtrl) then {
         // delay moving the mouse cursor by one frame, for some reason its not working without
         [{
             setMousePosition _this;
-        },_mousePos] call EFUNC(common,execNextFrame);
+        },_mousePos] call CBA_fnc_execNextFrame
     };
 
     _loadingCtrl ctrlShow false;

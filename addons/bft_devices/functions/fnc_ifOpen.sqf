@@ -135,7 +135,7 @@ GVAR(ifOpen) set [11,
         if (_this select 0 == ACE_player && _this select 1) then {
             [] call FUNC(ifClose);
         };
-    }] call EFUNC(common,addEventHandler)
+    }] call CBA_fnc_addEventHandler
 ];
 
 // Register with ACE bft_updateDeviceOwner event
@@ -145,14 +145,12 @@ GVAR(ifOpen) set [12,
         if ((_this select 0 == I_GET_DEVICE) && (_this select 1 != ACE_player)) then {
             [] call FUNC(ifClose);
         };
-    }] call EFUNC(common,addEventHandler)
+    }] call CBA_fnc_addEventHandler
 ];
 
 // Register with ACE playerChanged event
 GVAR(ifOpen) set [13,
-    ["playerChanged",{
-        _this call FUNC(onPlayerChanged);
-    }] call EFUNC(common,addEventHandler)
+    ["unit", FUNC(onPlayerChanged)] call CBA_fnc_addPlayerEventHandler
 ];
 
 // get device owner

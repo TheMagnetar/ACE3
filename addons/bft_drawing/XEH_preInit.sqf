@@ -28,6 +28,6 @@ GVAR(selection) = ["",[]];
         // once the main map loads in (i.e. briefing is done with), shut down the positional update loop
         [false] call FUNC(updateAvailableDevicesPosition);
     };
-}] call EFUNC(common,addEventHandler);
+}] call call CBA_fnc_addEventHandler;
 
 ADDON = true;

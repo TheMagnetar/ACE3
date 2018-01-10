@@ -31,7 +31,7 @@ private _mapTypes = [I_GET_ID,"mapTypes"] call FUNC(getSettings);
 } count (_mapTypes select 1);
 
 // send "bft_deviceOpened" event
-["bft_deviceOpened",[I_GET_DEVICE]] call EFUNC(common,localEvent);
+["bft_deviceOpened",[I_GET_DEVICE]] call CBA_fnc_localEvent;
 
 GVAR(ifOpenStart) = false;
 
