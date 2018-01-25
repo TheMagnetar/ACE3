@@ -15,10 +15,10 @@
 
 ["bft_vehicleDeviceKilled", FUNC(handleVehicleDeviceKilled)] call CBA_fnc_addEventHandler;
 
-if(!isServer) then {
+if (!isServer) then {
     ["PlayerJip", {
         diag_log text format["[ACE] * JIP BFT Data Synchronization initialized"];
-        ["bft_requestAllData", [player]] call CBA_fnc_serverEvent;
+        ["bft_requestAllData", [ace_player]] call CBA_fnc_serverEvent;
     }] call CBA_fnc_addEventHandler;
 } else {
     ["bft_requestAllData", FUNC(handleRequestAllData)] call CBA_fnc_addEventHandler;

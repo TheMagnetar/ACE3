@@ -161,15 +161,15 @@ private _deviceAppData = D_GET_APP_DATA(_deviceData);
 // if the device is a personal device, get settings from device appData store
 if (!(_deviceAppData isEqualTo []) && (_deviceOwner isKindOf "ParachuteBase" || _deviceOwner isKindOf "CAManBase")) then {
     // write settings to local cache
-    HASH_SET(GVAR(settings),_interfaceID,_deviceAppData);
+    [GVAR(settings), _interfaceID, _deviceAppData] call CBA_fnc_hashSet;
 } else {
     // if vehicle device, see if device app data is already cached, if not, retrieve from config
-    if !(HASH_HASKEY(GVAR(settings),_interfaceID)) then {
+    if !([GVAR(settings), _interfaceID] call CBA_fnc_hashHasKey) then {
         // read from config
         _deviceAppData = [_interfaceConfigName] call FUNC(getInterfaceSettingsFromConfig);
 
         // write to cache
-        HASH_SET(GVAR(settings),_interfaceID,_deviceAppData);
+        [GVAR(settings), _interfaceID, _deviceAppData] call CBA_fnc_hashSet;
     };
 };
 

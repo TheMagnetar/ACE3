@@ -84,7 +84,7 @@ if !(I_CLOSED) then {
 
     // if the device is a personal device, save settings to device appData store
     if (_deviceOwner isKindOf "ParachuteBase" || _deviceOwner isKindOf "CAManBase") then {
-        [_deviceID,[-1,HASH_GET(GVAR(settings),_interfaceID)]] call EFUNC(bft,handleUpdateDeviceAppData);
+        [_deviceID,[-1, [GVAR(settings),_interfaceID] call CBA_fnc_hashGet]] call EFUNC(bft,handleUpdateDeviceAppData);
     };
 
     // send "bft_deviceClosed" event
